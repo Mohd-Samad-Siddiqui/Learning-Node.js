@@ -1,0 +1,1 @@
+My first file in node js and now I am using appendFile to edit this file which was created by using writeFile
