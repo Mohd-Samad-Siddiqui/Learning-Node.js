@@ -12,14 +12,20 @@ const fs = require('fs'); //Yaha pr file system (fs) require kr rhe hain mtlb ab
 
 //fs.readFile k through hm log koi bhi files ko read kr sktein hain..
 //ismein ek 'utf-8' term use kiya gya hai jo ki ek encoding interpreter hai. Yeh UTF-8 node.js k files ko read krte time kaam aata hai. Agr hm koi file read kr rhe hain usmein koi emoji ya special character ho jaise ki ('Hello world, こんにちは世界 🌍) yeh file hai agr hme isko read krna hai toh without utf-8 krein gein toh woh hme buffer return kregi (binary digits) jo ki hm ni smjh paein gein and if we use UTF-8 then it'll make it readable for us with all that special japanese characters and earth emoji
-fs.readFile('./heyoo.txt', 'utf-8', function(err, result){
+fs.readFile('./heyoo.txt', 'utf-8', function(err, data){
     if(err){
         console.error("We got this error", err);
     }else{
-        console.log("The output is:", result);
+        console.log("The output is:", data);
         
     }
 })
+
+//We can also use const data = fs.readFileSync('./heyoo.txt', 'utf-8'); fs.readFileSync() returns the "file content directly", so we store it in a variable (const data). but fs.readFile() doesn’t return the file content immediately, but passes it through a callback when it's done, so data is used inside the callback. As you can see in line number 15.
+const data = fs.readFileSync('./heyoo.txt', 'utf-8');
+console.log(data);
+
+
 
 // //By using appendFile hm log pehle se likhe hue file mein kuch cheezein ussi k aage add kr skte hain and the format would be completely same bs writeFile k jgh appendFile likhna hoga. NOTE: agr jis file mein aap append krna chah rhe ho woh exist hi ni krti hai tb appendFile usko create krega pehle fir usmein woh diya hua content likh dega.
 // fs.appendFile('hello.txt', ' and now I am using appendFile to edit this file which was created by using writeFile', function(err){
