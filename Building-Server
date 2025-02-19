@@ -1,0 +1,90 @@
+## Key Terminologies
+
+### 1. **HTTP (HyperText Transfer Protocol)**
+- **What it is:**  
+  HTTP is the protocol used for communication between a client (like your web browser) and a server.
+- **Why it's used:**  
+  It defines how messages are formatted and transmitted, and what actions Web servers and browsers should take in response to various commands (e.g., GET, POST).
+
+---
+
+### 2. **Server**
+- **What it is:**  
+  In Node.js, a server is a piece of software that listens for incoming requests on a specific port and sends back responses.
+- **Why it's used:**  
+  It’s the central point where client requests are received and handled. The server processes these requests and returns data, HTML pages, or other resources to the client.
+
+---
+
+### 3. **Request**
+- **What it is:**  
+  A request is the data sent by a client to a server, which can include a URL, HTTP method (GET, POST, etc.), headers, and possibly a body (with data).
+- **Why it's used:**  
+  It tells the server what the client wants. For example, when you enter a URL in your browser, a GET request is sent to the server.
+
+---
+
+### 4. **Response**
+- **What it is:**  
+  A response is the data sent by the server back to the client after processing a request. This can include HTML content, JSON data, status codes, and headers.
+- **Why it's used:**  
+  It communicates the result of the client's request—whether it succeeded, failed, or requires further action (like a redirect).
+
+---
+
+### 5. **Port**
+- **What it is:**  
+  A port is a numerical identifier on a computer used for network communications. Servers listen on specific ports for incoming requests.
+- **Why it's used:**  
+  Ports help direct network traffic. For example, a typical Node.js server might listen on port 3000, meaning it accepts requests on that port.
+
+---
+
+### 6. **Module**
+- **What it is:**  
+  In Node.js, a module is a reusable block of code. The built-in `http` module is used to create servers.
+- **Why it's used:**  
+  Modules help organize code and functionality into separate, manageable parts. They allow you to import functionalities into your main server file.
+
+---
+
+### 7. **Callback Function**
+- **What it is:**  
+  A callback is a function passed as an argument to another function, which gets executed once the asynchronous operation completes.
+- **Why it's used:**  
+  Since Node.js uses an asynchronous, non-blocking model, callbacks are essential for handling the results of operations (like reading a file or processing a request) once they're finished.
+
+---
+
+### 8. **Event Loop**
+- **What it is:**  
+  The event loop is a core feature of Node.js that manages asynchronous operations. It continuously checks for events and executes their corresponding callbacks.
+- **Why it's used:**  
+  It allows Node.js to perform non-blocking I/O operations by offloading tasks and handling them in the background. This makes the server scalable and efficient.
+
+---
+
+### 9. **Routing (Optional, but Common)**
+- **What it is:**  
+  Routing is the process of determining how an application responds to a client request to a specific endpoint (URL and HTTP method).
+- **Why it's used:**  
+  It helps organize your server code by defining what action to take based on the URL or endpoint that’s accessed. For example, you might have different routes for `/home`, `/about`, or `/api/data`.
+
+---
+
+### 10. **npm (Node Package Manager)**
+- **What it is:**  
+  npm is a package manager for Node.js, used to install and manage third-party libraries or modules.
+- **Why it's used:**  
+  It makes it easy to add functionality to your server (like Express for routing) without reinventing the wheel.
+
+---
+
+## Putting It All Together
+
+When you build a Node.js server, here’s what happens:
+- You **import the HTTP module** (or a framework like Express) to create the server.
+- You **create a server** that listens on a specific **port** for **HTTP requests**.
+- When a request comes in, the server processes the **request** using its **callback function**.
+- The server then sends a **response** back to the client.
+- Behind the scenes, the **event loop** ensures that even if one request is waiting on a slow I/O operation, the server can continue processing other requests.
