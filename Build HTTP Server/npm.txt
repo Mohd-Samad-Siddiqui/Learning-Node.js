@@ -1,5 +1,5 @@
 *Q1. What is nmp?*
-**npm** is a tool that helps you manage code packages for JavaScript projects. Here's what it does:
+Ans: **npm** is a tool that helps you manage code packages for JavaScript projects. Here's what it does:
 
 - **Manages Packages:**  
   It lets you install, update, and remove libraries (packages) that your project needs.
@@ -17,7 +17,7 @@ In simple terms, npm makes it easy to share and reuse code, saving your time and
 
 
 *Q2. What are Dependencies?*
-i. Dependencies are the external packages or modules that your project needs in order to run properly. They are listed in the dependencies section of your package.json file.
+Ans: i. Dependencies are the external packages or modules that your project needs in order to run properly. They are listed in the dependencies section of your package.json file.
 
 ii. For example, if your project uses Express.js, then Express is a dependency of your project.
 
@@ -27,11 +27,11 @@ iv. There’s also a separate category called devDependencies for packages that 
 
 
 *Q3. What is devDependencies?*
-DevDependencies are packages that you only need during the development of your project and not in production. They include tools like testing frameworks, build systems, and code linters. For example, packages like nodemon (for automatically restarting your server during development) or Mocha (for testing) are typically listed under devDependencies in your package.json file.
+Ans: DevDependencies are packages that you only need during the development of your project and not in production. They include tools like testing frameworks, build systems, and code linters. For example, packages like nodemon (for automatically restarting your server during development) or Mocha (for testing) are typically listed under devDependencies in your package.json file.
 When you deploy your application on Vercel, DigitalOcean, Heroku, Amazon Web Servies(AWS) etc, you usually don't need these packages, so they are kept separate from the main dependencies needed for the app to run.
 
-*Q4. How to use it?*
-In terminal you can write..
+*Q4. How to use npm in terminal?*
+Ans: In terminal you can write..
 -(Local Installation) This installs the package in the node_modules folder of your current project. It's added as a dependency in your package.json by default.
 a. npm install <package ka naam>
 b. npm i <package ka naam>
@@ -44,14 +44,28 @@ a. npm install --save-dev <package ka naam>
 b. npm i -D <package ka naam>
 
 *Q5. How to install the specific version of packages?*
-a. npm install <package ka naam>@3.0.9 
+Ans: a. npm install <package ka naam>@3.0.9 
 Example: npm install accessibility@3.0.9
 
 *Q6. How to uninstall packages?*
-To uninstall packages you've to write npm uninstall fir package ka naam
+Ans: To uninstall packages you've to write npm uninstall fir package ka naam
 a. npm uninstall <package ka naam>
 NOTE: You can't write only -u to uninstall the package or else you'd get "Unknown command: -u"
 
 
 *Q7. What are scripts in Node.js?*
+Ans: In Node.js, scripts are basically custom commands which we define in our package.json file. We can think these custom commands as a shortcut which would run our code.
+For example, for starting our server we write in terminal "node index.js" or "node app.js" so to make it short we'd go to package.json file and find script tag, there we'll write like this: 
+{
+  "script": {
+    "start": "node index.js"
+  }
+}
 
+Now, we don't have to write in the terminal "node index.js to fire the server. Instead of that we can simple write "npm start" and it executes the full command. 
+This makes it easier to automate repetitive tasks like starting our server, running tests, or building our project.
+
+
+*Q8. While running the scripts in Node.js sometimes we write Ans: "npm start", "npm run concurrent", etc. So what's the difference between "npm start" and "npm run #name_of_script"?*
+When we install Node.js that time our OS (Windows, Mac, Linux) stores two keywords in the Node.js folder i.e. "start" and "test". Now, whenever we run the scripts like "npm start" or "npm test" the OS get these keywords easily but when we add new custom commands in script tag then those new keywords wouldn't get store in the Node.js folder. So, if we'd try to run "npm #New_Custom_Command_Name" then our OS couldn't find these new keywords and give us error. To prevent this issue we've to use "npm *run* #New_Custom_Command_Name". 
+For example, npm run concurrent
